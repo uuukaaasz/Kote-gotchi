@@ -1,0 +1,194 @@
+﻿<Page
+    x:Class="Tamagotchi.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tamagotchi"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="main">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <!-- Tło aplikacji -->
+        <Grid.Background>
+            <ImageBrush x:Name="ImgBack" ImageSource="Images/Background2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <!-- Panel tytułowy -->
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="5">
+            <TextBlock Text="Kotełgotchi" Name="Title" FontWeight="Bold" Foreground="#669ab8" FontFamily="Comic Sans MS" Style="{ThemeResource HeaderTextBlockStyle}" Margin="0 20 0 0" TextAlignment="Center" FontSize="70"/>
+        </StackPanel>
+        <!-- Przycisk pomoc -->
+        <StackPanel  Grid.Column="3" Grid.ColumnSpan="2">
+            <Button x:Name="Help" Click="Help_Click" FontSize="20" Foreground="Black" Background="#bbbbbb" BorderBrush="#8a8a8a"
+                    HorizontalAlignment="Center" Width="90" Margin="0,30,0,0" BorderThickness="2">
+            <StackPanel>
+                <Image Source="Images/help-icon.png" Height="30"/>
+                <TextBlock Text="Help"/>
+            </StackPanel>
+            </Button>
+        </StackPanel>
+        <!-- Tło Atrybutów -->
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="10 0 -10 0">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/Paper.png" Stretch="Fill"/>
+            </StackPanel.Background>
+        </StackPanel>
+        <!-- Panel atrybutów -->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock Text="Atrybuty:" FontSize="30" FontWeight="Bold" TextAlignment="Center" Margin="20 20 0 0"/>
+        </StackPanel>
+        <!-- Podpanel nazw atrybutów -->
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <TextBlock Text="Energia:" FontStyle="Italic" TextAlignment="Center" FontSize="20" Margin="20 20 0 0"/>
+            <TextBlock Text="Odżywianie:" FontStyle="Italic" TextAlignment="Center" FontSize="20" Margin="20 10 0 10"/>
+            <TextBlock Text="Higiena:" FontStyle="Italic" TextAlignment="Center" FontSize="20" Margin="20 0 0 0"/>
+            <TextBlock Text="Sprawność:" FontStyle="Italic" TextAlignment="Center" FontSize="20" Margin="20 10 0 10"/>
+            <TextBlock Text="Pieniądze:" FontStyle="Italic" TextAlignment="Center" FontSize="20" Margin="20 0 0 0"/>
+            <TextBlock Text="Doświadczenie:" FontStyle="Italic" TextAlignment="Center" FontSize="20" Margin="24 10 0 10"/>
+            <TextBlock Text="Zdrowie:" FontStyle="Italic" TextAlignment="Center" FontSize="20" Margin="20 0 0 10"/>
+        </StackPanel>
+        <!-- Podpanel wartości atrybutów-->
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBlock Text="100" Name="poziomEnergii" TextAlignment="Center" FontSize="20" Margin="10 20 20 0"/>
+            <TextBlock Text="80" Name="poziomOdzywienia" TextAlignment="Center" FontSize="20" Margin="10 10 20 10"/>
+            <TextBlock Text="100" Name="poziomHigieny" TextAlignment="Center" FontSize="20" Margin="10 0 20 0"/>
+            <TextBlock Text="10" Name="poziomSprawnosci" TextAlignment="Center" FontSize="20" Margin="10 10 20 10"/>
+            <TextBlock Text="50" Name="poziomPieniedzy" TextAlignment="Center" FontSize="20" Margin="10 0 20 0"/>
+            <TextBlock Text="1" Name="poziomDoswiadczenia" TextAlignment="Center" FontSize="20" Margin="10 10 20 10"/>
+            <TextBlock Text="100" Name="poziomZdrowia" TextAlignment="Center" FontSize="20" Margin="10 0 20 30"/>
+        </StackPanel>
+        <!-- Tło Czynności -->
+        <StackPanel Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="#bdbdbd" CornerRadius="25 25 25 25" BorderBrush="#757575" BorderThickness="1" Opacity="0.6" Margin="-10 20 10 0"/>
+        <!-- Panel Czynności -->
+        <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="0 0 10 0">
+            <TextBlock Text="Czynności:" FontSize="30" FontWeight="Bold" TextAlignment="Center" Margin="10 20 10 0"/>
+        </StackPanel>
+        <!-- Podpanel przycisków z lewej -->
+        <StackPanel Grid.Column="3" Grid.Row="2" Margin="0 0 10 15">
+            <Button Name="Jedz" Click="Jedz_Click" Width="110" Margin="0 10 0 0" Background="#ef9a9a" BorderBrush="#ef5350">
+                <StackPanel>
+                    <TextBlock Text="Jedz" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Eat.png" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button Name="Pij" Click="Pij_Click" Width="110" Margin="0 10 0 0" Background="#b39ddb" BorderBrush="#7e57c2">
+                <StackPanel>
+                    <TextBlock Text="Pij" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Drink.png" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button Name="Spij" Click="Spij_Click" Width="110" Margin="0 10 0 0" Background="#90caf9" BorderBrush="#42a5f5">
+                <StackPanel>
+                    <TextBlock Text="Śpij" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Sleep.png" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button Name="Relaks" Click="Relaks_Click" Width="110" Margin="0 10 0 0" Background="#ffcc80" BorderBrush="#ffa726">
+                <StackPanel>
+                    <TextBlock Text="Relaks" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Relaks.png" Height="30"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <!-- Podpanel przycisków z prawej -->
+        <StackPanel Grid.Column="4" Grid.Row="2" Margin="0 0 20 10">
+            <Button Name="Wykap" Click="Wykap_Click" Width="110" Margin="0 10 0 0" Background="#ce93d8" BorderBrush="#ab47bc">
+                <StackPanel>
+                    <TextBlock Text="Wykąp się" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Bath.png" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button Name="Pracuj" Click="Pracuj_Click" Width="110" Margin="0 10 0 0" Background="#9fa8da" BorderBrush="#5c6bc0">
+                <StackPanel>
+                    <TextBlock Text="Pracuj" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Work.png" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button Name="BawSie" Click="BawSie_Click" Width="110" Margin="0 10 0 0" Background="#a5d6a7" BorderBrush="#66bb6a">
+                <StackPanel>
+                    <TextBlock Text="Baw się" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Toy.png" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button Name="Lekarz" Click="Lekarz_Click" Width="110" Margin="0 10 0 0" Background="#ffab91" BorderBrush="#ff7043">
+                <StackPanel>
+                    <TextBlock Text="Idź do lekarza" HorizontalAlignment="Center"/>
+                    <Image Source="Images/Hospital.png" Height="30"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <!-- Panel główny -->
+        <StackPanel Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="0 10 0 0">
+            <Image Name="Koteł" Source="Images/Kotełgotchi1.png" Width="400" MinWidth="300" VerticalAlignment="Bottom" Margin="0 -20 0 0"/>
+        </StackPanel>
+        <!-- Panel opcji -->
+        <StackPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Margin="20 20 20 0">
+            <TextBlock Text="Opcje:" FontSize="25" Margin="0 10 0 5"/>
+            <!-- Podpanel dźwięk -->
+            <StackPanel Margin="5">
+                <CheckBox Name="CheckSound" Content="Dźwięk" FontSize="18" IsChecked="True" Checked="CheckSound_Checked" Unchecked="CheckSound_Unchecked" />
+                <MediaElement x:Name="PlaySound" Source="/Assets/Sound2.mp3" AutoPlay="True" IsMuted="False" IsLooping="True" Volume="40"/>
+            </StackPanel>
+            <!-- Podpanel tło -->
+            <StackPanel Margin="5">
+                <TextBlock Text="Tło:" FontSize="18"/>
+                <ComboBox Name="ComboTlo" SelectedIndex="0" FontSize="15" Margin="40 -27 0 0" Height="30" Width="150" SelectionChanged="ComboTlo_SelectionChanged">
+                    <ComboBoxItem Content="Różowy"/>
+                    <ComboBoxItem Content="Żółty"/>
+                    <ComboBoxItem Content="Czerwony"/>
+                    <ComboBoxItem Content="Niebieski"/>
+                    <ComboBoxItem Content="XP"/>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <!-- Etykieta Imię -->
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Background="#bbdefb" BorderBrush="#88abc8" BorderThickness="2" Margin="10 0 0 10">
+            <TextBlock x:Name="Imie" Text="Koteł" FontSize="20" FontStyle="Italic" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+        </StackPanel>
+        <!-- Przycisk Save -->
+        <StackPanel Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" Margin="0 10 0 10">
+            <Button Name="Save" Click="Save_Click" Width="90" Background="#bbbbbb" BorderBrush="#8a8a8a">
+                <StackPanel>
+                    <Image Source="Images/Save.png" Height="30"/>
+                    <TextBlock Text="Zapisz"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <!-- Przycisk Exit -->
+        <StackPanel Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" Margin="0 10 0 10">
+            <Button Name="Exit" Click="Exit_Click" Width="90" Background="#bbbbbb" BorderBrush="#8a8a8a">
+                <StackPanel>
+                    <Image Source="Images/Exit.png" Height="30"/>
+                    <TextBlock Text="Wyjście"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <!-- Panel zmiany atrybutów -->
+        <StackPanel Name="Czynnosci" Grid.Row="4" Grid.Column="2" Background="#bdbdbd" CornerRadius="25 25 25 25" Opacity="0.6" Margin="10 0 0 10" BorderBrush="Black" BorderThickness="1">
+            <TextBlock Text="WYBIERZ CZYNNOŚĆ:" Name="NazwaCzynnosci" HorizontalAlignment="Left" Margin="30 23 0 0" FontSize="20" FontWeight="Bold" Foreground="Black"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <ComboBox Name="Cmb" SelectedIndex="0" HorizontalContentAlignment="Center" 
+                      HorizontalAlignment="Center" MinWidth="150" MaxWidth="350" Margin="70 18 0 0" FontSize="20">
+                <ComboBoxItem Content="--- Wybierz czynność ---"/>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <Button Content="Wybierz" Name="Choose_Attribute" Click="Choose_Attribute_Click" HorizontalAlignment="Right" Margin="0 18 30 0" FontSize="20"/>
+        </StackPanel>
+    </Grid>
+</Page>
